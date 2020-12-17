@@ -7,16 +7,6 @@ class CircularProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CircularProgressIndicator(),
-          ],
-        ),
-      ],
-    );
+    return const Center(child: CircularProgressIndicator());
   }
 }
