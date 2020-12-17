@@ -5,8 +5,8 @@ import 'package:good_look/presentation/pages/todo_page.dart';
 
 @MaterialAutoRouter(routes: <AutoRoute>[
   // initial route is named "/"
-  MaterialRoute(page: MainPage, initial: true),
-  MaterialRoute(page: ToDoPage),
-  MaterialRoute(page: PhotoPage),
+  MaterialRoute<MainPage>(page: MainPage, initial: true),
+  MaterialRoute<ToDoPage>(page: ToDoPage),
+  MaterialRoute<PhotoPage>(page: PhotoPage),
 ])
 class $Router {}

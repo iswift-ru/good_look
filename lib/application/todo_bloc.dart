@@ -1,24 +1,23 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:good_look/data/models/photo_model.dart';
-import 'package:good_look/data/models/todo_model.dart';
-import 'package:good_look/domain/repositories/i_good_look_repository.dart';
+
+import '../domain/models/todo_model.dart';
+import '../domain/repositories/i_good_look_repository.dart';
 
 part 'todo_bloc.freezed.dart';
 
 class TodoBloc extends Bloc<TodoEvent, TodoState> {
   final IGoodLookRepository goodLookRepository;
-  TodoBloc({this.goodLookRepository}) : super(ProgressIndicator());
+  TodoBloc({this.goodLookRepository}) : super(const ProgressIndicator());
 
   @override
   Stream<TodoState> mapEventToState(
     TodoEvent event,
   ) async* {
     yield* event.map(eventToDo: (EventToDo value) async* {
-      yield ProgressIndicator();
+      yield const ProgressIndicator();
       final toDo = await goodLookRepository.getToDoList();
       yield StateToDo(toDo);
     });
